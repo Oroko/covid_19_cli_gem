@@ -4,6 +4,6 @@
 
 module Covid19::CLI 
   def start
-    
+    puts 'I am in the cli'
   end
 end
