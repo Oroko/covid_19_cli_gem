@@ -8,7 +8,6 @@ class Covid19::Continent
   def initialize(attr_hash)
     attr_hash.each do |key, value|
       send("#{key}=", value) if respond_to?("#{key}=")
-      
     end
     save
   end
@@ -19,10 +18,19 @@ class Covid19::Continent
 
   def self.all
     @@all
-   # binding.pry
+    # binding.pry
+  end
+
+  def self.continents
+    all.each.with_index(1) do |item, index|
+      puts "#{index}. #{item.continent}"
+      
+      #binding.pry
+    end
   end
 
   def self.find_by_name(continent)
-    @@all.find { |c| c.continent = continent   }
+    
+    all.select { |cont| cont.continent.downcase == continent }
   end
 end
